@@ -3,20 +3,34 @@
     <head> 
         <title>Песенки</title> 
         <link rel="stylesheet" type="text/css" href="style.css"> 
+            <meta charset="UTF-8">
+            <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">           -->
+            <title>Тест</title>
+        </head>
     </head>
-     <body> 
+        <body> 
 
-        <p>Тимур Шаов</p>
+            <div class="page">
+                <div class="header" >                   
 
-        <div class="songs-container" id="button-container"></div>       
+                    <p>Тимур Шаов</p>
 
-        <div class="audio-player">            
+                    <div class="player_container">
 
-            <audio controls id="mp3_source" autoplay="autoplay" >       
-                <source src="" type="audio/mpeg"> Ваш браузер не поддерживает элемент audio. </source>
-            </audio> 
-        </div> 
-        <script src="script.js"></script> 
+                        <button class="play_button" id="prev_track" onclick=""><<</button>
+                        <button class="play_button" id="playpause_button" onclick="playpauseTrack()">></button>
+                        <button class="play_button" id="next_track" onclick="">>></button>
+                        
 
-    </body> 
+                    </div>
+                </div>
+
+                <div class="songs_container" id="buttons_container"></div>       
+
+              
+            </div>
+
+            <script src="script.js"></script> 
+
+        </body> 
 </html>

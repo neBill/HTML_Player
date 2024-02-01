@@ -24,6 +24,14 @@ const songs = {
   22 : 'Волшебство виски.mp3'
 } 
 
+let curr_track = document.createElement('audio');
+let isPlaying = false;
+let play_pause_btn = document.querySelector("#playpause_button");
+let next_btn = document.querySelector(".next-track");
+let prev_btn = document.querySelector(".prev-track");
+
+
+
 function getSource(id){  
 
   return `music/${songs[id]}`
@@ -51,15 +59,26 @@ document.addEventListener('click', function(event){
 
   const className = event.target.className
 
-  if(className == 'song'){
+  if(className == 'song_button'){
 
     setColors()
 
     const songId = event.target.id
 
-    let filePath  = getSource(songId)
+    //let filePath  = getSource(songId)
 
-    document.getElementById('mp3_source').src = filePath 
+    //document.getElementById('mp3_source').src = filePath 
+
+    //autoplay="autoplay"
+
+    //curr_track.autoplay = true
+
+    loadTrack(songId)
+
+   // curr_track.src = filePath
+
+    //play_pause_btn.innerText = 'Pause';
+    playTrack()
 
     document.getElementById(songId).style.color = 'var(--button-pressed-color)'
     
@@ -70,12 +89,71 @@ document.addEventListener('click', function(event){
 function createButtons(count){
   for(let i = 0; i < count; i++){
     let btn = document.createElement('button')
+    
+    
     btn.innerText=songs[i].replace('.mp3', '')
-    btn.className = 'song'
+    btn.className = 'song_button'
     btn.id = i
-    document.querySelector('#button-container').appendChild(btn)
+    document.querySelector('#buttons_container').appendChild(btn)
   }
 }
+
+function playpauseTrack() {
+
+  if (!isPlaying) playTrack();
+  else pauseTrack();
+
+}
+
+function playTrack() {
+  // Play the loaded track
+  curr_track.play();
+  isPlaying = true;
+ 
+  // Replace icon with the pause icon
+  play_pause_btn.innerText = 'II';
+}
+ 
+function pauseTrack() {
+  // Pause the loaded track
+  curr_track.pause();
+  isPlaying = false;
+ 
+  // Replace icon with the play icon
+  play_pause_btn.innerText = '>';
+}
+
+function nextTrack() {
+  
+  if (track_index < track_list.length - 1)
+    track_index += 1;
+  else track_index = 0;
+ 
+  
+  loadTrack(track_index);
+  playTrack();
+}
+ 
+function prevTrack() {
+  
+  if (track_index > 0)
+    track_index -= 1;
+  else track_index = track_list.length - 1;   
+ 
+  loadTrack(track_index);
+  playTrack();
+}
+
+function loadTrack(track_index){
+
+  let filePath  = getSource(track_index)  
+  
+  curr_track.src = filePath
+
+
+}
+
+
 
 
 
