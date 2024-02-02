@@ -16,13 +16,30 @@
                     <p>Тимур Шаов</p>
 
                     <div class="player_container">
-
+                      <div>
                         <button class="play_button" id="prev_track" onclick=""><<</button>
                         <button class="play_button" id="playpause_button" onclick="playpauseTrack()">></button>
                         <button class="play_button" id="next_track" onclick="">>></button>
+                      </div>
+
+                      <div class="slider_container">
+                        <div class="current_time">00:00</div>
+                        <input type="range" min="1" max="100"
+                          value="0" class="seek_slider" onchange="seekTo()">
+                        <div class="total_duration">00:00</div>
+                      </div>
                         
 
                     </div>
+                  
+                  <!-- <div class="slider_container">
+                    <div class="current-time">00:00</div>
+                    <input type="range" min="1" max="100"
+                      value="0" class="seek_slider" onchange="seekTo()">
+                    <div class="total-duration">00:00</div>
+                  </div> -->
+
+                  
                 </div>
 
                 <div class="songs_container" id="buttons_container"></div>       
