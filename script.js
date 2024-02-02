@@ -104,7 +104,7 @@ function playTrack() {
   
 if(curr_track.src.length === 0){
 
-  loadTrack(5);
+  loadTrack(0);
   
 }
   
