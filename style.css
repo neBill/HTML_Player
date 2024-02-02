@@ -18,7 +18,7 @@ body{
     font-size: 2.2em;
     display: block;
     width: 100%;
-    
+
 
 }
 p{
@@ -38,28 +38,31 @@ p{
 .songs_container {
  text-align: center;
  /* background-color: rgb(133, 243, 210); */
- 
+
  /* padding: 2% 5% 0% 5%; */
  /* padding-top: 4%; */
- 
+
 
 }
 
 .player_container{ 
 
-    text-align: center;
+    /* text-align: center; */
     padding: 2% 0% 2% 0%;   
     /* background-color: blueviolet; */
     /* margin-top: 0%; */
     border:solid rgb(80, 81, 82); 
     border-width:1px 0px;
-    
-   
-   
+
+  justify-content: center;
+  align-items: center;
+
+
+
 }
 
 .song:hover {
-    
+
     color: rgb(89, 181, 235);
 }
 
@@ -98,4 +101,46 @@ p{
   color: rgb(255, 255, 255);
 
 
+}
+
+.slider_container {
+  width: 90%;
+  /* max-width: 400px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  margin-top: 16px;
+  margin-left: 6%;
+  margin-right: 6%;
+}
+.seek_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: black;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.seek_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.seek_slider {
+  width: 75%;
+}
+.current_time,.total_duration {
+  padding: 10px;
+  color: #606975;
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
